@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kings Kutzz — Private Barber Studio · Hauppauge, NY</title>
+<meta name="description" content="Appointment-only barber studio in Hauppauge, New York. Skin fades, styling, and transformations by Yanni Calamaras.">
+<meta name="theme-color" content="#0E0E0D">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Kings Kutzz — Private Barber Studio">
+<meta property="og:description" content="Private barber studio in Hauppauge, NY. Cuts by Yanni Calamaras. By appointment only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kingskutzz.com">
+<meta property="og:site_name" content="Kings Kutzz">
+
+<!-- Favicon: black tile, cream K -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230E0E0D'/%3E%3Ctext x='50%25' y='60%25' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-style='italic' font-size='38' fill='%23E8DFC9'%3EK%3C/text%3E%3C/svg%3E">
+
+<!-- HairSalon schema for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Kings Kutzz",
+  "image": "https://kingskutzz.com/og.jpg",
+  "@id": "https://kingskutzz.com",
+  "url": "https://kingskutzz.com",
+  "telephone": "+1-631-944-5159",
+  "priceRange": "$20 - $50",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4 Greene Court",
+    "addressLocality": "Hauppauge",
+    "addressRegion": "NY",
+    "postalCode": "11788",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://instagram.com/kingskutzz"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Canela+Deck:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<!-- Canela Deck fallback: using a similar open-source pairing -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,50&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Dark moody + cream — the ascendant 2026 palette per research */
+    --bg: #0E0E0D;
+    --bg-2: #151412;
+    --bg-elev: #1A1916;
+    --cream: #E8DFC9;
+    --cream-soft: #B8B0A0;
+    --cream-dim: #6E6960;
+    --rule: rgba(232, 223, 201, 0.09);
+    --rule-strong: rgba(232, 223, 201, 0.22);
+    --accent: #C19A5B;        /* warm brass — single defensible accent */
+    --accent-bright: #D9B376;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--bg); }
+
+  body {
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--cream);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    padding-bottom: calc(72px + var(--safe-bottom)); /* room for mobile sticky CTA */
+  }
+
+  @media (min-width: 821px) {
+    body { padding-bottom: 0; }
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* Film grain — per research, 2026 counter-reaction to AI aesthetics */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .serif {
+    font-family: 'Fraunces', 'Canela Deck', Georgia, serif;
+    font-feature-settings: "ss01", "liga";
+  }
+
+  .mono-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--cream-dim);
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    padding: 22px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: rgba(14, 14, 13, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 30;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-mark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-mark-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--cream-soft);
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--cream-soft);
+    font-family: 'Inter Tight', sans-serif;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #6BAA5E;
+    box-shadow: 0 0 0 0 rgba(107, 170, 94, 0.6);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .status-dot.closed {
+    background: var(--cream-dim);
+    animation: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(107, 170, 94, 0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(107, 170, 94, 0); }
+  }
+
+  .nav-book {
+    background: var(--cream);
+    color: var(--bg);
+    padding: 11px 22px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .nav-book:hover { background: var(--accent-bright); transform: translateY(-1px); }
+
+  @media (max-width: 820px) {
+    nav { padding: 16px 22px; }
+    .nav-links { display: none; }
+    .nav-status { display: none; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: calc(100vh - 76px);
+    padding: 80px 40px 100px;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 920px;
+    opacity: 0;
+    animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+    color: var(--accent);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .wordmark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(88px, 14vw, 220px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    margin-bottom: 44px;
+    color: var(--cream);
+  }
+
+  .wordmark .line-2 {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+    margin-left: 0.1em;
+  }
+
+  .hero-tagline {
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.5;
+    color: var(--cream-soft);
+    margin-bottom: 48px;
+    max-width: 560px;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 72px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 26px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--cream);
+    color: var(--bg);
+  }
+
+  .btn-primary:hover { background: var(--accent-bright); transform: translateY(-1px); }
+  .btn-primary .arrow { transition: transform 0.25s; }
+  .btn-primary:hover .arrow { transform: translateX(3px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid var(--rule-strong);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--cream);
+    background: rgba(232, 223, 201, 0.04);
+  }
+
+  /* Hero credentials row */
+  .hero-credits {
+    display: flex;
+    gap: 56px;
+    padding-top: 36px;
+    border-top: 1px solid var(--rule);
+    max-width: 720px;
+    flex-wrap: wrap;
+  }
+
+  .hero-credit .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .hero-credit .num em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .hero-credit .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+
+  @media (max-width: 820px) {
+    .hero { padding: 56px 24px 80px; min-height: 0; }
+    .hero-credits { gap: 32px; }
+    .hero-actions { margin-bottom: 48px; }
+  }
+
+  /* ============ SECTION BASE ============ */
+  section {
+    padding: 110px 40px;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .section-inner { max-width: 1440px; margin: 0 auto; }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: -0.028em;
+    line-height: 0.98;
+    color: var(--cream);
+  }
+
+  .section-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  @media (max-width: 820px) {
+    section { padding: 72px 22px; }
+    .section-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+  }
+
+  /* ============ SERVICES ============ */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+  }
+
+  .col-sidebar {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--cream-soft);
+  }
+
+  .col-sidebar .mono-label { margin-bottom: 14px; display: block; }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    padding: 30px 0;
+    border-top: 1px solid var(--rule);
+    transition: all 0.3s;
+    gap: 32px;
+  }
+
+  .service-row:last-of-type { border-bottom: 1px solid var(--rule); }
+
+  .service-row:hover {
+    padding-left: 14px;
+    border-top-color: var(--accent);
+  }
+
+  .service-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    color: var(--cream);
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: var(--cream-soft);
+    max-width: 420px;
+  }
+
+  .service-meta {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .service-price {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cream);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .service-time {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-top: 4px;
+  }
+
+  .services-note {
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--cream-dim);
+    font-style: italic;
+  }
+
+  @media (max-width: 820px) {
+    .services-grid { grid-template-columns: 1fr; gap: 24px; }
+    .service-row:hover { padding-left: 0; }
+  }
+
+  /* ============ STUDIO (editorial block) ============ */
+  .studio-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+  }
+
+  .studio-prose {
+    max-width: 680px;
+  }
+
+  .studio-lead {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.35;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+
+  .studio-lead em { font-style: italic; color: var(--accent); }
+
+  .studio-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--cream-soft);
+  }
+
+  .studio-body p + p { margin-top: 18px; }
+
+  @media (max-width: 820px) {
+    .studio-layout { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* ============ WORK / IG ============ */
+  .work-section {
+    padding: 140px 40px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(193, 154, 91, 0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .work-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .work-headline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(40px, 6.5vw, 88px);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin-top: 18px;
+    margin-bottom: 28px;
+    color: var(--cream);
+  }
+
+  .work-headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .work-sub {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--cream-soft);
+    max-width: 460px;
+    margin: 0 auto 40px;
+  }
+
+  .ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 28px;
+    border: 1px solid var(--rule-strong);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: all 0.25s;
+    border-radius: 2px;
+  }
+
+  .ig-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(193, 154, 91, 0.04);
+  }
+
+  .ig-link svg { width: 17px; height: 17px; }
+
+  @media (max-width: 820px) {
+    .work-section { padding: 80px 22px; }
+  }
+
+  /* ============ VISIT (map + info) ============ */
+  .visit-layout {
+    border: 1px solid var(--rule);
+  }
+
+  .visit-info {
+    padding: 56px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 56px;
+  }
+
+  .visit-block h4 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .visit-block p,
+  .visit-block .content {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--cream);
+  }
+
+  .visit-block a {
+    color: var(--cream);
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 1px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .visit-block a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    font-size: 12px;
+    color: var(--cream-soft);
+    margin-top: 14px;
+    transition: all 0.2s;
+    width: fit-content;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  .directions-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .hours-grid {
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row .day { color: var(--cream); font-weight: 500; }
+  .hours-row .time { color: var(--cream-soft); }
+  .hours-row.today .day { color: var(--accent); }
+  .hours-row.today .time { color: var(--accent); }
+
+  @media (max-width: 820px) {
+    .visit-info { padding: 32px 24px; grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ============ CTA STRIP ============ */
+  .cta-strip {
+    padding: 140px 40px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-strip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 25% 40%, rgba(193, 154, 91, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 60%, rgba(193, 154, 91, 0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .cta-strip > * { position: relative; z-index: 1; }
+
+  .cta-eyebrow {
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  .cta-headline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(48px, 8vw, 108px);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-bottom: 20px;
+    color: var(--cream);
+  }
+
+  .cta-headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: var(--cream-soft);
+    margin-bottom: 44px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 820px) { .cta-strip { padding: 90px 22px; } }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 44px 40px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--cream-dim);
+  }
+
+  footer .mark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  footer .center { text-align: center; letter-spacing: 0.08em; text-transform: uppercase; }
+  footer .right { text-align: right; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 820px) {
+    footer { grid-template-columns: 1fr; text-align: center; gap: 12px; padding: 32px 22px; }
+    footer .center, footer .right { text-align: center; }
+  }
+
+  /* ============ STICKY MOBILE CTA (research tier-1 must-have) ============ */
+  .mobile-cta {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 16px calc(12px + var(--safe-bottom));
+    background: rgba(14, 14, 13, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--rule);
+    z-index: 40;
+  }
+
+  .mobile-cta button {
+    width: 100%;
+    padding: 16px;
+    background: var(--cream);
+    color: var(--bg);
+    border: none;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  @media (max-width: 820px) {
+    .mobile-cta { display: block; }
+
+    .modal-backdrop { padding: 16px; }
+    .modal-booking { max-width: 100%; }
+    .modal-booking-header { padding: 28px 24px 20px; }
+    .modal-booking-header h2 { font-size: 28px; }
+    .modal-body { padding: 22px 24px 28px; }
+  }
+
+  /* ============ MODAL ============ */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(14, 14, 13, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .modal-backdrop.open { display: flex; opacity: 1; }
+
+  .modal {
+    background: var(--bg-elev);
+    max-width: 480px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 44px 36px 36px;
+    position: relative;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    transform: translateY(14px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Booking modal variant */
+  .modal-booking {
+    max-width: 460px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 92vh;
+    overflow: hidden;
+  }
+
+  .modal-booking-header {
+    padding: 36px 36px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .modal-body {
+    padding: 28px 36px 32px;
+    overflow-y: auto;
+  }
+
+  .modal-backdrop.open .modal { transform: translateY(0); }
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: var(--cream-dim);
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--accent); }
+
+  .modal-eyebrow {
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .modal h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 14px;
+    color: var(--cream);
+  }
+
+  .modal h2 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .modal > p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--cream-soft);
+    margin-bottom: 28px;
+  }
+
+  .modal-services {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+
+  .modal-services li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+  }
+
+  .modal-services li:last-child { border-bottom: 1px solid var(--rule); }
+  .modal-services .name { color: var(--cream); font-weight: 500; }
+  .modal-services .price { color: var(--cream-dim); font-variant-numeric: tabular-nums; font-family: 'Fraunces', serif; }
+
+  .modal-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    background: var(--cream);
+    color: var(--bg);
+    padding: 17px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .modal-cta:hover { background: var(--accent-bright); }
+  .modal-cta .arrow-r { transition: transform 0.25s; }
+  .modal-cta:hover .arrow-r { transform: translateX(3px); }
+
+  .modal-fine {
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--cream-dim);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  /*
+    SQUARE EMBED SWAP INSTRUCTIONS:
+    Replace everything between .modal-close and </div> with Yanni's Square widget.
+    Get code from: Square Dashboard → Appointments → Online Booking → Website Embed.
+  */
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-mark">Kings Kutzz</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#visit">Visit</a>
+  </div>
+  <button class="nav-book" onclick="openBooking()">Book</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Hauppauge · Long Island · Est. 2020</div>
+
+    <h1 class="wordmark">
+      Kings
+      <span class="line-2">Kutzz</span>
+    </h1>
+
+    <p class="hero-tagline">
+      A private barber studio. One chair, one barber, one appointment at a time — by Yanni Calamaras.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="openBooking()">
+        Book an appointment <span class="arrow">→</span>
+      </button>
+      <a href="https://instagram.com/kingskutzz" target="_blank" rel="noopener" class="btn btn-ghost">
+        See work on Instagram
+      </a>
+    </div>
+
+    <div class="hero-credits">
+      <div class="hero-credit">
+        <div class="num">06<em>.</em></div>
+        <div class="label">Years behind the clippers</div>
+      </div>
+      <div class="hero-credit">
+        <div class="num">01<em>.</em></div>
+        <div class="label">Chair · By appointment</div>
+      </div>
+      <div class="hero-credit">
+        <div class="num">NY<em>.</em></div>
+        <div class="label">11788 · Hauppauge</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <span class="mono-label">01 — Services</span>
+      </div>
+      <h2 class="section-title">The <em>menu.</em></h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="col-sidebar">
+        <span class="mono-label">By appointment</span>
+        Book ahead to reserve your time. Prices listed are current rates.
+      </div>
+      <div>
+        <div class="service-row">
+          <div>
+            <div class="service-name">Haircut</div>
+            <div class="service-desc">Cut and style — fade, scissor, or whatever you want.</div>
+          </div>
+          <div class="service-meta">
+            <div class="service-price">$35</div>
+            <div class="service-time">45 min</div>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div>
+            <div class="service-name">Haircut + Beard</div>
+            <div class="service-desc">Haircut paired with beard shape-up.</div>
+          </div>
+          <div class="service-meta">
+            <div class="service-price">$50</div>
+            <div class="service-time">60 min</div>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div>
+            <div class="service-name">Beard Detail</div>
+            <div class="service-desc">Beard trim and line-up.</div>
+          </div>
+          <div class="service-meta">
+            <div class="service-price">$20</div>
+            <div class="service-time">20 min</div>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div>
+            <div class="service-name">Junior Cut</div>
+            <div class="service-desc">Haircut for clients under 12.</div>
+          </div>
+          <div class="service-meta">
+            <div class="service-price">$25</div>
+            <div class="service-time">30 min</div>
+          </div>
+        </div>
+
+        <p class="services-note">Prices subject to change — confirm rates at booking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK / IG -->
+<section class="work-section">
+  <div class="work-inner">
+    <span class="mono-label">02 — Recent Work</span>
+    <h2 class="work-headline">Follow <em>the work.</em></h2>
+    <p class="work-sub">
+      Recent cuts, fades, and transformations — posted on Instagram.
+    </p>
+    <a href="https://instagram.com/kingskutzz" target="_blank" rel="noopener" class="ig-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      @kingskutzz
+    </a>
+  </div>
+</section>
+
+<!-- VISIT (map + info) -->
+<section id="visit">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <span class="mono-label">03 — Visit</span>
+      </div>
+      <h2 class="section-title">Find <em>the chair.</em></h2>
+    </div>
+
+    <div class="visit-layout">
+      <div class="visit-info">
+        <div class="visit-block">
+          <h4>Address</h4>
+          <div class="content">
+            4 Greene Court<br>
+            Hauppauge, NY 11788
+          </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=4+Greene+Court+Hauppauge+NY+11788" target="_blank" rel="noopener" class="directions-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            Get directions
+          </a>
+        </div>
+
+        <div class="visit-block">
+          <h4>Contact</h4>
+          <div class="content contact-grid">
+            <a href="tel:+16319445159">(631) 944-5159</a>
+            <a href="mailto:yannicalamaras@aol.com">yannicalamaras@aol.com</a>
+            <a href="https://instagram.com/kingskutzz" target="_blank" rel="noopener">@kingskutzz</a>
+          </div>
+        </div>
+
+        <div class="visit-block">
+          <h4>Hours</h4>
+          <div class="hours-grid" id="hoursGrid">
+            <div class="hours-row" data-day="1"><span class="day">Monday</span><span class="time">By appointment</span></div>
+            <div class="hours-row" data-day="2"><span class="day">Tuesday</span><span class="time">By appointment</span></div>
+            <div class="hours-row" data-day="3"><span class="day">Wednesday</span><span class="time">By appointment</span></div>
+            <div class="hours-row" data-day="4"><span class="day">Thursday</span><span class="time">By appointment</span></div>
+            <div class="hours-row" data-day="5"><span class="day">Friday</span><span class="time">By appointment</span></div>
+            <div class="hours-row" data-day="6"><span class="day">Saturday</span><span class="time">By appointment</span></div>
+            <div class="hours-row" data-day="0"><span class="day">Sunday</span><span class="time">Closed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-eyebrow mono-label">Reserve your time</div>
+  <h2 class="cta-headline">Book the <em>chair.</em></h2>
+  <p class="cta-sub">Appointments fill quickly. Reserve in under a minute.</p>
+  <button class="btn btn-primary" onclick="openBooking()">
+    Book now <span class="arrow">→</span>
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="mark">Kings Kutzz</span>
+  <span class="center">Hauppauge, New York</span>
+  <span class="right">
+    <a href="https://instagram.com/kingskutzz" target="_blank" rel="noopener">@kingskutzz</a>
+  </span>
+</footer>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-cta">
+  <button onclick="openBooking()">
+    Book an appointment <span>→</span>
+  </button>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-backdrop" id="modal" onclick="handleBackdrop(event)">
+  <div class="modal modal-booking" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeBooking()" aria-label="Close">✕</button>
+
+    <div class="modal-booking-header">
+      <span class="modal-eyebrow">Reserve — Kings Kutzz</span>
+      <h2>Book your <em>chair.</em></h2>
+    </div>
+
+    <div class="modal-body">
+      <ul class="modal-services">
+        <li><span class="name">Haircut</span><span class="price">$35 · 45 min</span></li>
+        <li><span class="name">Haircut + Beard</span><span class="price">$50 · 60 min</span></li>
+        <li><span class="name">Beard Detail</span><span class="price">$20 · 20 min</span></li>
+        <li><span class="name">Junior Cut</span><span class="price">$25 · 30 min</span></li>
+      </ul>
+
+      <button type="button" class="modal-cta" onclick="window.open('https://kingskutzz.square.site/?location=3NKJFM74CAK7C', '_blank')">
+        Continue to calendar <span class="arrow-r">→</span>
+      </button>
+
+      <p class="modal-fine">Powered by Square · Confirmation sent by text &amp; email</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ----- MODAL -----
+  const modal = document.getElementById('modal');
+
+  function openBooking() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBooking() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleBackdrop(e) {
+    if (e.target === modal) closeBooking();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeBooking();
+  });
+
+  // ----- External link fix for sandboxed previews -----
+  document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(link.href, '_blank');
+    });
+  });
+
+  // ----- TODAY HIGHLIGHT -----
+  const today = new Date().getDay(); // 0 = Sun, 1 = Mon...
+  const todayRow = document.querySelector(`.hours-row[data-day="${today}"]`);
+  if (todayRow) todayRow.classList.add('today');
+</script>
+
+</body>
+</html>
